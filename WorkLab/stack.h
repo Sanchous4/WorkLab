@@ -1,5 +1,5 @@
-#ifndef StACK_H
-#define StACK_H
+#ifndef STACK_H
+#define STACK_H
 
 #include <memory>
 #include <istream>
@@ -79,4 +79,4 @@ template<typename t> bool stack<t>::empty() const { return head == nullptr; }
 
 template<typename t> void stack<t>::clear() { head = nullptr,stk_size = 0; }
 
-#endif // StACK_H
+#endif // STACK_H
