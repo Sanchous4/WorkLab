@@ -1,0 +1,25 @@
+#ifndef TEXTEDITOR_H
+#define TEXTEDITOR_H
+
+#include <stack.h>
+#include <txt_operations.h>
+
+using namespace std;
+
+class TextEditor {
+public:
+    TextEditor() = default;
+    void eliminate(size_t position_, size_t length_);
+    void insert(const string& text_, size_t position_);
+    void supersede(const string& new_, size_t position_, size_t length_);
+    void undo();
+    void redo();
+    const string& text() const;
+private:
+    string m_text;
+    stack<shared_ptr<virtual_txt_operations> > m_undoStack;
+    stack<shared_ptr<virtual_txt_operations> > m_redoStack;
+    void applyOperation(shared_ptr<virtual_txt_operations>&& operation_);
+};
+
+#endif // TEXTEDITOR_H
